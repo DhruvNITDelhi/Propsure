@@ -25,7 +25,14 @@
     "scheme": "propsure",
     "plugins": [
       "expo-router",
-      "expo-secure-store"
-    ]
+      "expo-secure-store",
+      "expo-web-browser"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "82d96591-3d79-4aff-a4f9-903abc5f0815"
+      }
+    }
   }
 }

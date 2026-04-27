@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import * as Linking from 'expo-linking';
+import * as WebBrowser from 'expo-web-browser';
 import { colors, typography, spacing, radius } from '../constants/theme';
 
 interface PortalLinkProps {
@@ -13,16 +13,7 @@ interface PortalLinkProps {
 const PortalLink: React.FC<PortalLinkProps> = ({ url, label, description }) => {
   const handlePress = async () => {
     try {
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        Alert.alert(
-          'Cannot Open Link',
-          `Unable to open this link. You can try copying the URL and opening it in your browser:\n\n${url}`,
-          [{ text: 'OK' }]
-        );
-      }
+      await WebBrowser.openBrowserAsync(url);
     } catch {
       Alert.alert(
         'Error',
@@ -40,7 +31,7 @@ const PortalLink: React.FC<PortalLinkProps> = ({ url, label, description }) => {
       <View style={styles.textContainer}>
         <Text style={styles.label}>{label}</Text>
         {description && <Text style={styles.description}>{description}</Text>}
-        <Text style={styles.hint}>Opens in browser</Text>
+        <Text style={styles.hint}>Opens in app</Text>
       </View>
       <MaterialCommunityIcons name="chevron-right" size={20} color={colors.textMuted} />
     </TouchableOpacity>
