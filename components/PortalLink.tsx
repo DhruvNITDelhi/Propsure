@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import * as WebBrowser from 'expo-web-browser';
+import { useRouter } from 'expo-router';
 import { colors, typography, spacing, radius } from '../constants/theme';
 
 interface PortalLinkProps {
@@ -11,16 +11,13 @@ interface PortalLinkProps {
 }
 
 const PortalLink: React.FC<PortalLinkProps> = ({ url, label, description }) => {
-  const handlePress = async () => {
-    try {
-      await WebBrowser.openBrowserAsync(url);
-    } catch {
-      Alert.alert(
-        'Error',
-        `Could not open the link. Try visiting:\n\n${url}`,
-        [{ text: 'OK' }]
-      );
-    }
+  const router = useRouter();
+
+  const handlePress = () => {
+    router.push({
+      pathname: '/browser',
+      params: { url, title: label }
+    });
   };
 
   return (
