@@ -11,12 +11,12 @@ export const reraPortals: Record<string, { name: string; url: string; notes: str
   },
   'Delhi': {
     name: 'Delhi RERA',
-    url: 'https://rera.delhi.gov.in',
+    url: 'https://dda.gov.in/rera',
     notes: 'Managed by Delhi Development Authority.',
   },
   'Uttar Pradesh': {
     name: 'UP RERA',
-    url: 'https://www.up-rera.in',
+    url: 'https://up-rera.in',
     notes: 'Covers Noida, Greater Noida, Lucknow, and all UP districts.',
   },
   'Gujarat': {
@@ -36,7 +36,7 @@ export const reraPortals: Record<string, { name: string; url: string; notes: str
   },
   'Tamil Nadu': {
     name: 'TNRERA',
-    url: 'https://www.tnrera.in',
+    url: 'https://rera.tn.gov.in',
     notes: 'Covers Chennai, Coimbatore and all Tamil Nadu.',
   },
   'Telangana': {
@@ -50,9 +50,9 @@ export const reraPortals: Record<string, { name: string; url: string; notes: str
     notes: 'Kerala Real Estate Regulatory Authority.',
   },
   'West Bengal': {
-    name: 'WBHIRA',
-    url: 'https://hira.wb.gov.in',
-    notes: 'West Bengal Housing Industry Regulation Act — similar to RERA.',
+    name: 'WBRERA',
+    url: 'https://rera.wb.gov.in',
+    notes: 'West Bengal Real Estate Regulatory Authority.',
   },
   'Madhya Pradesh': {
     name: 'MP RERA',
@@ -61,17 +61,42 @@ export const reraPortals: Record<string, { name: string; url: string; notes: str
   },
   'Punjab': {
     name: 'Punjab RERA',
-    url: 'https://www.prera.in',
+    url: 'https://rera.punjab.gov.in',
     notes: 'Covers Chandigarh, Mohali, Ludhiana.',
   },
   'Bihar': {
     name: 'Bihar RERA',
-    url: 'https://rerabihar.gov.in',
+    url: 'https://rera.bihar.gov.in',
     notes: 'Patna and all Bihar districts.',
   },
   'Odisha': {
     name: 'OdishaRERA',
     url: 'https://rera.odisha.gov.in',
     notes: 'Covers Bhubaneswar, Cuttack and all Odisha.',
+  },
+  'Andhra Pradesh': {
+    name: 'APRERA',
+    url: 'https://rera.ap.gov.in',
+    notes: 'Covers Visakhapatnam, Vijayawada and all AP.',
+  },
+  'Assam': {
+    name: 'Assam RERA',
+    url: 'https://rera.assam.gov.in',
+    notes: 'Covers Guwahati and all Assam districts.',
+  },
+  'Chhattisgarh': {
+    name: 'CGRERA',
+    url: 'https://rera.cgstate.gov.in',
+    notes: 'Covers Raipur, Bhilai and all CG districts.',
+  },
+  'Jharkhand': {
+    name: 'JHARERA',
+    url: 'https://jharera.jharkhand.gov.in',
+    notes: 'Covers Ranchi, Jamshedpur and all Jharkhand.',
+  },
+  'Tripura': {
+    name: 'T-RERA',
+    url: 'https://rera.tripura.gov.in',
+    notes: 'Covers Agartala and all Tripura.',
   },
 };
