@@ -115,6 +115,12 @@ export default function RootLayout() {
             href: null,
           }}
         />
+        <Tabs.Screen
+          name="browser/index"
+          options={{
+            href: null,
+          }}
+        />
       </Tabs>
     </>
   );

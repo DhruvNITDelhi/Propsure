@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { StyleSheet, View, SafeAreaView, ActivityIndicator, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -85,8 +86,10 @@ export default function BrowserScreen() {
           startInLoadingState={false} // Handled custom above
           injectedJavaScript={INJECTED_JAVASCRIPT}
           setSupportMultipleWindows={false}
-          javaScriptCanOpenWindowsAutomatically={false}
           onShouldStartLoadWithRequest={() => true} // Let the WebView load all requests
+          domStorageEnabled={true}
+          mixedContentMode="always"
+          userAgent="Mozilla/5.0 (Linux; Android 10; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Mobile Safari/537.36"
         />
       </View>
     </SafeAreaView>
