@@ -163,6 +163,13 @@ export default function RentalScreen() {
             <Text style={styles.resultText}>{generatedText}</Text>
           </View>
 
+          <View style={styles.tipCard}>
+            <MaterialCommunityIcons name="lightbulb-on-outline" size={20} color={colors.accent} />
+            <Text style={styles.tipText}>
+              <Text style={{ fontWeight: 'bold' }}>Pro-Tip:</Text> To make this agreement legally binding, print this generated text on a Non-Judicial Stamp Paper of the value required by your state (typically ₹100 or ₹500) and get it signed by both parties and two witnesses.
+            </Text>
+          </View>
+
           <View style={styles.resultActions}>
             <TouchableOpacity
               style={styles.secondaryButton}
@@ -404,6 +411,22 @@ const styles = StyleSheet.create({
   resultText: {
     ...typography.body,
     lineHeight: 22,
+  },
+  tipCard: {
+    flexDirection: 'row',
+    backgroundColor: colors.accent + '14',
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.accent + '30',
+    padding: spacing.md,
+    marginTop: spacing.md,
+    gap: spacing.sm,
+  },
+  tipText: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    flex: 1,
+    lineHeight: 18,
   },
   resultActions: {
     flexDirection: 'row',
