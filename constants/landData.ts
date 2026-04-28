@@ -16,7 +16,7 @@ export const landPortals: Record<string, { name: string; url: string; searchBy: 
   },
   'Rajasthan': {
     name: 'Apna Khata',
-    url: 'https://apnakhata.raj.nic.in',
+    url: 'https://apnakhata.rajasthan.gov.in',
     searchBy: 'Khasra number, khata number',
   },
   'Madhya Pradesh': {
@@ -76,7 +76,7 @@ export const landPortals: Record<string, { name: string; url: string; searchBy: 
   },
   'Himachal Pradesh': {
     name: 'Himbhoomi',
-    url: 'https://himbhoomi.nic.in',
+    url: 'https://ehimbhoomi.nic.in',
     searchBy: 'Khasra, khewat number',
   },
   'Uttarakhand': {
@@ -91,12 +91,27 @@ export const landPortals: Record<string, { name: string; url: string; searchBy: 
   },
   'Jharkhand': {
     name: 'Jharbhoomi',
-    url: 'https://jharbhoomi.nic.in',
+    url: 'https://jharbhoomi.jharkhand.gov.in',
     searchBy: 'Khasra, khata number',
   },
   'Assam': {
     name: 'Dharitree',
-    url: 'https://dharitree.assam.gov.in',
+    url: 'https://revenueassam.nic.in',
     searchBy: 'Dag number, patta number',
+  },
+  'Andhra Pradesh': {
+    name: 'MeeBhoomi',
+    url: 'https://meebhoomi.ap.gov.in',
+    searchBy: 'Adangal, 1-B, Survey number',
+  },
+  'Goa': {
+    name: 'DSLR Goa',
+    url: 'https://dslr.goa.gov.in',
+    searchBy: 'Form I & XIV, Survey number',
+  },
+  'Tripura': {
+    name: 'Jami Tripura',
+    url: 'https://jami.tripura.gov.in',
+    searchBy: 'Khatian, Plot number',
   },
 };
