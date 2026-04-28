@@ -71,7 +71,7 @@ export const landPortals: Record<string, { name: string; url: string; searchBy: 
   },
   'Delhi': {
     name: 'Delhi Land Records',
-    url: 'https://dlrc.delhigovt.nic.in',
+    url: 'https://dlrc.delhi.gov.in',
     searchBy: 'Khasra number, owner name',
   },
   'Himachal Pradesh': {

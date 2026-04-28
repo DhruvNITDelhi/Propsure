@@ -64,12 +64,15 @@ export default function BrowserScreen() {
 
       <View style={styles.container}>
         <WebView
+          key={url as string}
           ref={webViewRef}
           source={{ uri: url as string }}
           style={styles.webview}
           onNavigationStateChange={handleNavigationStateChange}
           allowsBackForwardNavigationGestures
           startInLoadingState={true}
+          cacheEnabled={false}
+          domStorageEnabled={true}
           renderLoading={() => (
             <View style={styles.loaderContainer}>
               <ActivityIndicator size="large" color={colors.primary} />
