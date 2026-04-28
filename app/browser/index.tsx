@@ -11,6 +11,29 @@ export default function BrowserScreen() {
   const [loading, setLoading] = useState(true);
   const webViewRef = useRef<WebView>(null);
 
+  // Inject JS to force all links to open in the same window, preventing external browser popups
+  const INJECTED_JAVASCRIPT = `
+    (function() {
+      // Override window.open to navigate the current frame instead
+      window.open = function(url) {
+        window.location.href = url;
+        return window;
+      };
+
+      // Intercept clicks on links with target="_blank" and remove the target attribute
+      document.addEventListener('click', function(e) {
+        var target = e.target;
+        while (target && target.tagName !== 'A') {
+          target = target.parentNode;
+        }
+        if (target && target.getAttribute('target') === '_blank') {
+          target.removeAttribute('target');
+        }
+      }, true);
+    })();
+    true;
+  `;
+
   // Here is the infrastructure to track exactly what pages the user visits.
   const handleNavigationStateChange = (navState: any) => {
     // In a production environment, you would log this to your analytics backend
@@ -60,6 +83,10 @@ export default function BrowserScreen() {
           onNavigationStateChange={handleNavigationStateChange}
           allowsBackForwardNavigationGestures
           startInLoadingState={false} // Handled custom above
+          injectedJavaScript={INJECTED_JAVASCRIPT}
+          setSupportMultipleWindows={false}
+          javaScriptCanOpenWindowsAutomatically={false}
+          onShouldStartLoadWithRequest={() => true} // Let the WebView load all requests
         />
       </View>
     </SafeAreaView>

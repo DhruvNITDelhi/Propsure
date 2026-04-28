@@ -1,6 +1,6 @@
 # PropSure - India's Property Companion
 
-PropSure is a comprehensive, mobile application designed to simplify the complex world of Indian real estate for the average citizen. Built with React Native and Expo, the app provides essential tools and quick access to state-wise portals for property verification, land records, and legal documentation.
+PropSure is a comprehensive mobile application designed to simplify the complex world of Indian real estate for the average citizen. Built with React Native and Expo, the app provides essential tools and quick access to state-wise portals for property verification, land records, and legal documentation.
 
 ## Features
 
