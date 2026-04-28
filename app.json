@@ -25,7 +25,8 @@
     "scheme": "propsure",
     "plugins": [
       "expo-router",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-font"
     ],
     "extra": {
       "router": {},
