@@ -16,7 +16,6 @@ import { useRouter } from 'expo-router';
 import { colors, typography, spacing, radius } from '../../constants/theme';
 import ScreenHeader from '../../components/ScreenHeader';
 import StateSelector from '../../components/StateSelector';
-import LoadingOverlay from '../../components/LoadingOverlay';
 import { generateOfflineRentalAgreement } from '../../utils/agreementTemplate';
 import { validateRentalForm, ValidationError } from '../../utils/validation';
 import { generateAndSharePdf, wrapInHtmlTemplate, rentalAgreementToHtml } from '../../utils/pdf';
@@ -315,23 +314,6 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     paddingBottom: spacing.xxl + 20,
   },
-  apiKeyBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.warning + '14',
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.warning + '30',
-    padding: spacing.sm + 4,
-    marginBottom: spacing.md,
-    gap: spacing.sm,
-  },
-  apiKeyBannerText: {
-    ...typography.caption,
-    color: colors.warning,
-    flex: 1,
-    fontWeight: '500',
-  },
   inputGroup: {
     marginBottom: spacing.md,
   },
@@ -407,9 +389,6 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
     gap: spacing.sm,
     marginTop: spacing.md,
-  },
-  generateButtonDisabled: {
-    opacity: 0.6,
   },
   generateButtonText: {
     ...typography.h3,

@@ -34,14 +34,8 @@ export default function BrowserScreen() {
     true;
   `;
 
-  // Here is the infrastructure to track exactly what pages the user visits.
-  const handleNavigationStateChange = (navState: any) => {
-    // In a production environment, you would log this to your analytics backend
-    // to build a profile of what portals and specific land records the user checks.
-    console.log(`[Usage Tracker] User navigated to: ${navState.url}`);
-    
-    // You can also capture title changes, loading state, etc.
-    // console.log(`[Usage Tracker] Page Title: ${navState.title}`);
+  const handleNavigationStateChange = () => {
+    // No-op: navigation state changes are handled internally by the WebView.
   };
 
   return (
