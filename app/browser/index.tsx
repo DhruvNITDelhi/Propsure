@@ -9,7 +9,6 @@ import { colors, typography, spacing } from '../../constants/theme';
 export default function BrowserScreen() {
   const router = useRouter();
   const { url, title } = useLocalSearchParams<{ url: string; title: string }>();
-  const [loading, setLoading] = useState(true);
   const webViewRef = useRef<WebView>(null);
 
   // Inject JS to force all links to open in the same window, preventing external browser popups
@@ -70,20 +69,18 @@ export default function BrowserScreen() {
       </View>
 
       <View style={styles.container}>
-        {loading && (
-          <View style={styles.loaderContainer}>
-            <ActivityIndicator size="large" color={colors.primary} />
-          </View>
-        )}
         <WebView
           ref={webViewRef}
           source={{ uri: url as string }}
           style={styles.webview}
-          onLoadStart={() => setLoading(true)}
-          onLoadEnd={() => setLoading(false)}
           onNavigationStateChange={handleNavigationStateChange}
           allowsBackForwardNavigationGestures
-          startInLoadingState={false} // Handled custom above
+          startInLoadingState={true}
+          renderLoading={() => (
+            <View style={styles.loaderContainer}>
+              <ActivityIndicator size="large" color={colors.primary} />
+            </View>
+          )}
           injectedJavaScript={INJECTED_JAVASCRIPT}
           setSupportMultipleWindows={false}
           onShouldStartLoadWithRequest={() => true} // Let the WebView load all requests

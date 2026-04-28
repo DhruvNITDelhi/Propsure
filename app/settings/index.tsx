@@ -1,11 +1,11 @@
+import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
-} from 'react-native';
+  } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, typography, spacing, radius } from '../../constants/theme';
 import ScreenHeader from '../../components/ScreenHeader';
