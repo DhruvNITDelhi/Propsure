@@ -113,6 +113,24 @@ export default function HomeScreen() {
           ))}
         </View>
 
+        {/* Featured: Find My Property */}
+        <TouchableOpacity
+          style={styles.findCard}
+          onPress={() => router.push('/land/find' as any)}
+          activeOpacity={0.85}
+        >
+          <View style={styles.findIconWrap}>
+            <MaterialCommunityIcons name="map-search-outline" size={30} color={colors.surface} />
+          </View>
+          <View style={styles.findContent}>
+            <Text style={styles.findTitle}>Find My Property</Text>
+            <Text style={styles.findSubtitle}>
+              Don't have a Gata number or documents? Drop a pin on the map and we'll guide you step by step.
+            </Text>
+          </View>
+          <MaterialCommunityIcons name="chevron-right" size={22} color="rgba(255,255,255,0.7)" />
+        </TouchableOpacity>
+
         {/* Disclaimer */}
         <View style={styles.disclaimer}>
           <MaterialCommunityIcons name="information-outline" size={14} color={colors.textMuted} />
@@ -215,5 +233,37 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.textMuted,
     textAlign: 'center',
+  },
+  findCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.accent,
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
+    gap: spacing.sm,
+  },
+  findIconWrap: {
+    width: 50,
+    height: 50,
+    borderRadius: radius.md,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  findContent: {
+    flex: 1,
+  },
+  findTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.surface,
+    marginBottom: 3,
+  },
+  findSubtitle: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.8)',
+    lineHeight: 17,
   },
 });
