@@ -11,6 +11,7 @@ import {
   Platform,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { colors, typography, spacing, radius } from '../../constants/theme';
 import { landPortals } from '../../constants/landData';
 import ScreenHeader from '../../components/ScreenHeader';
@@ -63,6 +64,7 @@ const commonProblems = [
 ];
 
 export default function LandRecordsScreen() {
+  const router = useRouter();
   const [selectedState, setSelectedState] = useState('');
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
 
@@ -81,6 +83,31 @@ export default function LandRecordsScreen() {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
+        {/* ── Guided Search Hero CTA ── */}
+        <TouchableOpacity
+          style={styles.heroCard}
+          onPress={() => router.push('/land/find')}
+          activeOpacity={0.85}
+        >
+          <View style={styles.heroIconWrap}>
+            <MaterialCommunityIcons name="compass" size={28} color={colors.surface} />
+          </View>
+          <View style={styles.heroText}>
+            <Text style={styles.heroTitle}>Don't know where to start?</Text>
+            <Text style={styles.heroSubtitle}>
+              Use our guided search — drop a pin on the map, no Gata number or documents needed
+            </Text>
+          </View>
+          <MaterialCommunityIcons name="chevron-right" size={24} color={colors.surface} />
+        </TouchableOpacity>
+
+        {/* ── Divider ── */}
+        <View style={styles.orDivider}>
+          <View style={styles.orLine} />
+          <Text style={styles.orText}>or search manually</Text>
+          <View style={styles.orLine} />
+        </View>
+
         <StateSelector
           value={selectedState}
           onChange={setSelectedState}
@@ -327,5 +354,54 @@ const styles = StyleSheet.create({
   problemDescription: {
     ...typography.caption,
     lineHeight: 17,
+  },
+  heroCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  heroIconWrap: {
+    width: 48,
+    height: 48,
+    borderRadius: radius.md,
+    backgroundColor: 'rgba(255,255,255,0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heroText: {
+    flex: 1,
+  },
+  heroTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.surface,
+    marginBottom: 3,
+  },
+  heroSubtitle: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.8)',
+    lineHeight: 17,
+  },
+  orDivider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginVertical: spacing.sm,
+  },
+  orLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: colors.border,
+  },
+  orText: {
+    ...typography.caption,
+    color: colors.textMuted,
+    fontSize: 11,
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
 });
